@@ -1,0 +1,50 @@
+ 
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Страница HTML5</title><meta charset="utf-8">
+ </head>
+ <body>
+  
+  <script>{
+  function cacheIm(url){
+  	const im = document.createElement('img');
+    im.src = url;
+    im.width = '150';
+    im.onclick = function() { im.style = 'border: 15px solid red';
+    }
+    return im;
+  };
+	 
+
+  img_urls = ['https://i.pinimg.com/originals/16/69/2c/16692c248260ceadcb73963190b1f5e5.png','https://i.pinimg.com/originals/87/0c/61/870c61a5167e08f4cc9766c50947913b.png','https://images2.minutemediacdn.com/image/upload/c_crop,h_1189,w_1767,x_338,y_0/v1593805943/shape/mentalfloss/55561-universal_pictures_home_entertainment.jpg?itok=yXo6bjz4'];
+  
+  const load_button = document.createElement('button');
+  document.body.appendChild(load_button);
+  load_button.textContent += 'Load Image';
+  load_button.id = 'load';
+  
+  const my_handler2 = function() {
+document.body.appendChild(cacheIm('https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg'));
+    elem = document.getElementById('insert');
+    document.body.removeChild(elem);
+  };
+  
+  const my_handler = function() { 
+    img_urls.forEach(cur=>{
+  	document.body.appendChild(cacheIm(cur));
+    });
+    elem = document.getElementById('load');
+    insert_button.addEventListener('click', my_handler2);
+    document.body.removeChild(elem);  
+  };
+  load_button.addEventListener('click', my_handler); 
+  
+  const insert_button = document.createElement('button');
+  document.body.appendChild(insert_button);
+  insert_button.textContent += 'Insert Image';
+  insert_button.id = 'insert'; 
+  
+}</script>
+ </body>
+</html>
